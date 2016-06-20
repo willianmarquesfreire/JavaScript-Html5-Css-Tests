@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<script src = "wmf.js"></script>
+<style>
+.icon p::selection {
+background: white;
+color: #FFF;
+}
+.icon p::-moz-selection {
+background: white;
+color: #FFF;
+}
+.icon p::-webkit-selection {
+background: white;
+color: #FFF;
+} 
+
+
+</style>
+</head>
+<body id="body">
+<script>
+
+	
+
+	
+	window.onload = function(){
+	var d = document.body.newDesktop({});
+	d.goMenuBody
+	.newThumbnail({background:"#0033CC"})
+	.newThumbnail({background:"#FF3333"})
+	.newThumbnail({background:"#478FB2"})
+	.newThumbnail({background:"#00B200"})
+	.newThumbnail({background:"#CCFF33"})
+	.newThumbnail({background:"#7A00A3"})
+	.newThumbnail({background:"#993333"})
+	.newThumbnail({background:"#99CC00"})
+	.newThumbnail({background:"#FF3399"})
+	.newThumbnail({background:"#990099"})
+	.newThumbnail({background:"#66FFFF"});
+	
+	
+	var window1 = d.desktop.newWindow({width:"700px",height:"500px",top:"10px",left:"500px"});
+	window1.div.style.left = "600px";
+	var container1 = window1.body.newContainer({top:"10px",left:"10px",border:"10px solid #F0FAFF",width:"80%",height:"80%"});
+	var menu = container1.newMenuBar("wmf1","wmf2","wmf3","wmf1","wmf2","wmf3");
+	
+	container1.newIcon({},function(){alert("click")});
+	
+	menu.option[1].onclick = function(){
+		alert(1);
+	}
+	var calend = container1.newSimpleCalendar();
+	
+	container1.newText();
+	container1.newButton({value:"wmf1"},function(){}).Dad.newButton({value:"wmf2"}).Dad.newButton({value:"wmf2"});
+	
+	container1.newTable().title("Nome","Endereço","Telefone").append("Willian M. Freire","Av. Brasil 1425",96404352).append("Willian M. Freire","Av. Brasil 14d25",96404352).append("Willian M. Freire","Av. Brasil 1425",96404352).append("Willian M. Freire","Av. Brasil 14d25",96404352);
+	
+
+	
+	container1.tableLayout();
+	
+	
+	
+	
+	
+	
+	
+	d.desktop.newIcon({},function(){this.desktop.newWindow()});
+	
+	
+	}
+	
+	
+	
+
+	
+</script>
+</body>
+</html>

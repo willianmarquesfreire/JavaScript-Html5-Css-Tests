@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+<script>
+
+function newMesa(){
+	var div = document.createElement("div");
+	div.style.height = "400px";
+	div.style.width = "600px";
+	div.style.border = "1px solid #000000";
+	div.style.zIndex = "5";
+	div.id = "mesa";
+	document.body.appendChild(div);
+}
+
+
+
+
+
+
+function newCarta(naipe,valor){
+	var carta = document.createElement("div");
+	carta.style.height = "185px";
+	carta.style.width = "150px";
+	carta.style.background = "white";
+	carta.style.border = "1px solid #000000";
+	carta.style.borderRadius = "2pt";
+	carta.style.margin = "2px";
+	carta.style.position = "relative";
+	carta.style.display = "inline-block";
+	carta.style.zIndex = "100";
+	carta.className = "carta";
+	document.getElementById("mesa").appendChild(carta);
+	
+	var naipeAtual;
+	
+	var copas = document.createElement("div");
+	copas.style.border = "1px solid transparent";
+	copas.style.background = "red";
+	copas.style.width = "19px";
+	copas.style.height = "28px"
+	copas.style.margin = "1px";
+	
+	var ouros = document.createElement("div");
+	ouros.style.border = "1px solid transparent";
+	ouros.style.background = "red";
+	ouros.style.width = "19px";
+	ouros.style.height = "28px"
+	ouros.style.margin = "1px";
+	
+	var paus = document.createElement("div");
+	paus.style.border = "1px solid transparent";
+	paus.style.background = "black";
+	paus.style.width = "19px";
+	paus.style.height = "28px"
+	paus.style.margin = "1px";
+	
+	var espadas = document.createElement("div");
+	espadas.style.border = "1px solid transparent";
+	espadas.style.background = "black";
+	espadas.style.width = "19px";
+	espadas.style.height = "28px"
+	espadas.style.margin = "1px";
+	
+	
+	var naipe1 = document.createElement("div");
+	naipe1.style.height = "34px";
+	naipe1.style.width = "24px";
+	naipe1.style.border = "1px solid transparent";
+	naipe1.style.position = "absolute";
+	naipe1.style.display = "inline-block";
+	naipe1.style.margin = "2%";
+	
+	carta.appendChild(naipe1);
+	
+	var center = document.createElement("div");
+	center.style.height = "165px";
+	center.style.width = "95px";
+	center.style.border = "1px solid transparent";
+	center.style.position = "absolute";
+	center.style.left = "26px";
+	center.style.display = "inline-block";
+	center.style.marginTop = "7px";
+	center.style.paddingLeft = "7px";
+	center.style.paddingTop= "3px";
+	
+	var centerElements = new Array();
+	
+	
+	for (var x = 1; x <= 12; x++){
+		var naipeCenter = document.createElement("div");
+		naipeCenter.style.height = "33px";
+		naipeCenter.style.width = "26%";
+		naipeCenter.style.margin = "0px";
+
+
+		naipeCenter.style.border = "1px solid transparent";
+		naipeCenter.style.position = "relative"; 
+		naipeCenter.style.display = "inline-block"; 
+
+		center.appendChild(naipeCenter);
+		centerElements.push(naipeCenter);
+	}
+	
+	
+	centerElements[7].style.visibility = "hidden";
+	centerElements[1].style.top = "20px";
+	centerElements[4].style.top = "20px";
+	centerElements[10].style.top = "-20px";
+	
+	
+	
+	carta.appendChild(center);
+	
+	var naipe2 = document.createElement("div");
+	naipe2.style.height = "34px";
+	naipe2.style.width = "24px";
+	naipe2.style.border = "1px solid transparent";
+	naipe2.style.display = "inline-block";
+	naipe2.style.position = "absolute";
+	naipe2.style.left = "117px";
+	naipe2.style.top = "142px";
+	naipe2.style.margin = "2%";
+	carta.appendChild(naipe2);
+	
+	
+	switch(naipe){
+		case "copas":
+			naipeAtual = copas;
+		break;
+		case "ouros":
+			naipeAtual = ouros;
+		break;
+		case "paus":
+			naipeAtual = paus;
+		break;
+		case "espadas":
+			naipeAtual = copas;
+		break;
+	}
+	
+	switch(valor){
+		case 1:
+			
+		break;
+		case 2:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[1].appendChild(naipeAtual.cloneNode());
+			centerElements[10].appendChild(naipeAtual.cloneNode());
+		break;
+		case 3:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[1].appendChild(naipeAtual.cloneNode());
+			centerElements[4].appendChild(naipeAtual.cloneNode());
+			centerElements[10].appendChild(naipeAtual.cloneNode());
+		break;
+		case 4:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[9].appendChild(naipeAtual.cloneNode());
+			centerElements[11].appendChild(naipeAtual.cloneNode());
+		break;
+		case 5:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[4].appendChild(naipeAtual.cloneNode());
+			centerElements[9].appendChild(naipeAtual.cloneNode());
+			centerElements[11].appendChild(naipeAtual.cloneNode());
+		break;
+		case 6:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[3].appendChild(naipeAtual.cloneNode());
+			centerElements[5].appendChild(naipeAtual.cloneNode());
+			centerElements[6].appendChild(naipeAtual.cloneNode());
+			centerElements[8].appendChild(naipeAtual.cloneNode());
+		break;
+		case 7:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[1].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[3].appendChild(naipeAtual.cloneNode());
+			centerElements[5].appendChild(naipeAtual.cloneNode());
+			centerElements[6].appendChild(naipeAtual.cloneNode());
+			centerElements[8].appendChild(naipeAtual.cloneNode());
+		break;
+		case 8:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[3].appendChild(naipeAtual.cloneNode());
+			centerElements[5].appendChild(naipeAtual.cloneNode());
+			centerElements[6].appendChild(naipeAtual.cloneNode());
+			centerElements[8].appendChild(naipeAtual.cloneNode());
+			centerElements[9].appendChild(naipeAtual.cloneNode());
+			centerElements[11].appendChild(naipeAtual.cloneNode());
+		break;
+		case 9:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[1].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[3].appendChild(naipeAtual.cloneNode());
+			centerElements[5].appendChild(naipeAtual.cloneNode());
+			centerElements[6].appendChild(naipeAtual.cloneNode());
+			centerElements[8].appendChild(naipeAtual.cloneNode());
+			centerElements[9].appendChild(naipeAtual.cloneNode());
+			centerElements[11].appendChild(naipeAtual.cloneNode());
+		break;
+		case 10:
+			naipe1.appendChild(naipeAtual.cloneNode());
+			naipe2.appendChild(naipeAtual.cloneNode());
+			centerElements[0].appendChild(naipeAtual.cloneNode());
+			centerElements[1].appendChild(naipeAtual.cloneNode());
+			centerElements[2].appendChild(naipeAtual.cloneNode());
+			centerElements[3].appendChild(naipeAtual.cloneNode());
+			centerElements[5].appendChild(naipeAtual.cloneNode());
+			centerElements[6].appendChild(naipeAtual.cloneNode());
+			centerElements[8].appendChild(naipeAtual.cloneNode());
+			centerElements[9].appendChild(naipeAtual.cloneNode());
+			centerElements[10].appendChild(naipeAtual.cloneNode());
+			centerElements[11].appendChild(naipeAtual.cloneNode());
+		break;
+	}
+	carta.onmousedown = function(evt){
+		
+		var outrasCartas = document.getElementsByClassName("carta");
+		for(var x = 0; x < outrasCartas.length; x++){
+			outrasCartas[x].style.zIndex = "95";
+		}
+		carta.style.zIndex = "100";
+		
+		var initialXOffset = (carta.offsetLeft - evt.pageX);
+		var initialYOffset = (carta.offsetTop - evt.pageY);
+		document.onmousemove = function(event){
+			carta.style.top = (event.pageY+initialYOffset-11)+"px";
+			carta.style.left = (event.pageX+initialXOffset-11)+"px";
+		}
+	}
+	document.onmouseup = function(){
+		document.onmousemove = null;
+		document.onclick = null;
+		document.onmousedown = null;
+	}
+}
+
+newMesa();
+
+	newCarta("paus",10-1);
+
+
+
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,124 @@
+<html>
+<head>
+<meta charset="utf8">
+<title>Bms Nanuncio</title>
+
+<style>
+/********** Accordion Menu ******************************/
+
+
+
+
+
+
+
+
+
+</style>
+</head>
+<body>
+
+<script>
+
+Object.prototype.newMenuBar = function(options){
+
+options = (typeof options !== "object") ? {} : options;
+var elements = new Array();
+
+var div = document.createElement("div");
+div.id = "menuBar";
+
+var ul = document.createElement("ul");
+ul.className = "menu";
+
+var liTitle = document.createElement("li");
+liTitle.className = "titleMenu";
+liTitle.innerHTML = "Home";
+ul.appendChild(liTitle);
+
+var li = document.createElement("li");
+li.className = "sub";
+
+liTitle.style.backgroundColor = "#003333";
+liTitle.style.color = "#E6F0F0";
+liTitle.style.fontWeight = "bold";
+liTitle.style.fontSize = "15px";
+
+div.style.border = "1px solid #338585";
+div.style.borderRadius = "3px";
+div.style.width = "100px";
+
+ul.style.backgroundColor = "#99C2C2";
+ul.style.listStyleType = "none";
+ul.style.margin = "0px";
+ul.style.padding = "0px";
+ul.style.textAlign = "center";
+ul.style.width = "100%";
+
+for(var x = 1; x < arguments.length; x++){
+li = document.createElement("li");
+li.className = "sub";
+var link = document.createElement("a");
+link.href = "#";
+
+li.style.backgroundColor = "#99C2C2";
+li.style.listStyleType = "none";
+li.style.margin = "0px";
+li.style.height = "0px";
+li.style.padding = "0px";
+li.style.textAlign = "center";
+li.style.width = "100%";
+li.style.visibility = "hidden";
+li.style.transition = "height 0.5s";
+
+li.onmouseover = function(){
+	this.style.backgroundColor = "white";
+}
+li.onmouseout = function(){
+	this.style.backgroundColor = "#99C2C2";
+}
+
+link.style.textDecoration = "none";
+link.style.color = "#000A0A";
+link.style.textShadow = "1px 1px #338585";
+
+link.appendChild(document.createTextNode(arguments[x]));
+li.appendChild(link);
+ul.appendChild(li);
+
+elements.push(li);
+
+}
+div.appendChild(ul);
+
+ul.onmouseover = function(){
+for(var x = 0; x < elements.length; x++){
+elements[x].style.visibility = "visible";
+elements[x].style.height = "25px";
+elements[x].style.opacity = "1.0";
+elements[x].style.transition = "opacity 1s, visibility 1s, height 0.5s";
+}
+}
+
+ul.onmouseout = function(){
+for(var x = 0; x < elements.length; x++){
+elements[x].style.visibility = "hidden";
+elements[x].style.height = "0px";
+elements[x].style.opacity = "0.0";
+}
+}
+
+this.appendChild(div);
+
+return elements;
+}
+
+var m1 = document.body.newMenuBar({},"dfdf","kfjk");
+m1[0].onclick = function(){
+	alert("1");
+}
+
+</script>
+
+</body>
+</html>
