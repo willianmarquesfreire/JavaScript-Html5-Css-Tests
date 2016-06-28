@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Wmf</title>
+<meta charset="UTF-8"/>
+<style>
+</style>
+<script>
+window.onload = function(){
+//Captura Elemento Texto
+var text = document.getElementById("text");
+//Inicia Função
+add();
+}
+//Cria Array
+var text1 = ["w","i","l","l","i","a","n"];
+//Cria Função
+function add(){
+//Valor de Texto = Valor de Texto + Array na posição de Tamanho Valor de Texto
+text.value = text.value + text1[text.value.length];
+//Cria Timing
+var temp = setTimeout(add,100);
+//Cria condição para fim de Timing quando Timing = tamanho do Array
+if(temp = text1.length){
+clearTimeout(temp);
+}
+}
+</script>
+</head>
+<body>
+<input type="text" id="text" />
+</body>
+</html>
